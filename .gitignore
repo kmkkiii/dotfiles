@@ -1,0 +1,15 @@
+### all ignore ###
+/*
+/.**
+
+### not ignore ###
+!/.zshrc
+!/.zsh/
+!/.zsh/rc/
+!/.zsh/rc/**
+!/.config/
+!/.config/**
+!/.gitignore_global
+
+!/README.md
+!.gitignore
