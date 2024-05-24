@@ -9,7 +9,6 @@
 !/.zsh/rc/**
 !/.config/
 !/.config/**
-!/.gitignore_global
 
 !/README.md
 !.gitignore
