@@ -3,13 +3,14 @@
 /.**
 
 ### not ignore ###
-!/.zshrc
+!/.config/
+!/.config/**
 !/.zshenv
+!/.zshrc
 !/.zsh/
 !/.zsh/rc/
 !/.zsh/rc/**
-!/.config/
-!/.config/**
+!/Brewfile
 
 !/README.md
 !.gitignore
