@@ -31,6 +31,7 @@ cask "slack"
 cask "visual-studio-code"
 cask "wezterm"
 cask "zoom"
+cask "font-plemol-jp-nf"
 
 # mas
 mas "Kindle", id: 302584613
