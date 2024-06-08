@@ -35,25 +35,42 @@ local function LeftUpdate(window, pane)
 end
 
 -- Right Status
+local HEADER_HOST = { Foreground = { Color = '#75b1a9' }, Text = ' ' }
+local HEADER_CWD = { Foreground = { Color = '#92aac7' }, Text = ' ' }
+local HEADER_DATE = { Foreground = { Color = '#ffccac' }, Text = '󱪺 ' }
+local HEADER_TIME = { Foreground = { Color = '#bcbabe' }, Text = ' ' }
+local HEADER_BATTERY = { Foreground = { Color = '#dfe166' }, Text = ' ' }
+
+local function AddElement(elems, header, str)
+  table.insert(elems, { Foreground = header.Foreground })
+  table.insert(elems, { Background = DEFAULT_BG })
+  table.insert(elems, { Text = header.Text .. SPACE_1 })
+
+  table.insert(elems, { Foreground = DEFAULT_FG })
+  table.insert(elems, { Background = DEFAULT_BG })
+  table.insert(elems, { Text = str .. SPACE_3 })
+end
+
 local function GetHostAndCwd(elems, pane)
-  local uri = pane:get_current_working_dir()
+  local cwd_uri = pane:get_current_working_dir()
+  if cwd_uri then
+    local cwd = ''
+    local hostname = ''
 
-  if not uri then
-    return
+    cwd = cwd_uri.file_path
+    hostname = cwd_uri.host or wezterm.hostname()
+
+    local dot = hostname:find '[.]'
+    if dot then
+      hostname = hostname:sub(1, dot - 1)
+    end
+    if hostname == '' then
+      hostname = wezterm.hostname()
+    end
+
+    AddElement(elems, HEADER_HOST, hostname)
+    AddElement(elems, HEADER_CWD, cwd)
   end
-
-  local cwd_uri = uri:sub(8)
-  local slash = cwd_uri:find '/'
-
-  if not slash then
-    return
-  end
-
-  local host = cwd_uri:sub(1, slash - 1)
-  local dot = host:find '[.]'
-
-  AddElement(elems, HEADER_HOST, dot and host:sub(1, dot - 1) or host)
-  AddElement(elems, HEADER_CWD, cwd_uri:sub(slash))
 end
 
 local function GetDate(elems)
@@ -72,22 +89,6 @@ local function GetBattery(elems, window)
   for _, b in ipairs(wezterm.battery_info()) do
     AddElement(elems, HEADER_BATTERY, string.format('%.0f%%', b.state_of_charge * 100))
   end
-end
-
-local HEADER_HOST = { Foreground = { Color = '#75b1a9' }, Text = '' }
-local HEADER_CWD = { Foreground = { Color = '#92aac7' }, Text = '' }
-local HEADER_DATE = { Foreground = { Color = '#ffccac' }, Text = '󱪺' }
-local HEADER_TIME = { Foreground = { Color = '#bcbabe' }, Text = '' }
-local HEADER_BATTERY = { Foreground = { Color = '#dfe166' }, Text = '' }
-
-local function AddElement(elems, header, str)
-  table.insert(elems, { Foreground = header.Foreground })
-  table.insert(elems, { Background = DEFAULT_BG })
-  table.insert(elems, { Text = header.Text .. SPACE_1 })
-
-  table.insert(elems, { Foreground = DEFAULT_FG })
-  table.insert(elems, { Background = DEFAULT_BG })
-  table.insert(elems, { Text = str .. SPACE_3 })
 end
 
 local function RightUpdate(window, pane)
