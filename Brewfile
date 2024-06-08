@@ -1,27 +1,28 @@
 # tap
-tap "aws/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask-versions"
 
 # brew
-brew "awscli"
 brew "chezmoi"
-brew "deno"
+brew "cocoapods"
 brew "fzf"
 brew "gh"
 brew "jq"
 brew "lazygit"
+brew "make"
+brew "mas"
 brew "mise"
 brew "neovim"
+brew "ripgrep"
 brew "starship"
 brew "sheldon"
-brew "tmux"
-brew "zellij"
 
 # cask
+cask "applite"
+cask "around"
 cask "1password"
 cask "arc"
 cask "google-japanese-ime"
+cask "font-plemol-jp-nf"
 cask "karabiner-elements"
 cask "ngrok"
 cask "notion"
@@ -31,9 +32,7 @@ cask "slack"
 cask "visual-studio-code"
 cask "wezterm"
 cask "zoom"
-cask "font-plemol-jp-nf"
 
 # mas
 mas "Kindle", id: 302584613
-mas "LINE", id: 539883307
 mas "Xcode", id: 497799835
