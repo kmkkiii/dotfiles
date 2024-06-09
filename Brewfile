@@ -4,6 +4,7 @@ tap "homebrew/bundle"
 # brew
 brew "chezmoi"
 brew "cocoapods"
+brew "difftastic"
 brew "fzf"
 brew "gh"
 brew "jq"

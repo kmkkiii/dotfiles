@@ -26,3 +26,15 @@
 	lo = log --oneline
 	po = push origin HEAD
 	pf = push --force-with-lease --force-if-includes origin HEAD
+
+[diff]
+        tool = difftastic
+
+[difftool]
+        prompt = false
+
+[difftool "difftastic"]
+        cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+        difftool = true
