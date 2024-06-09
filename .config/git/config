@@ -1,3 +1,28 @@
 [user]
 	name = kmkkiii
 	email = rskkmkmk@gmail.com
+
+[core]
+	quotepath = false
+	editor = nvim
+
+[fetch]
+	prune = true
+
+[alias]
+	aa = add .
+	ba = branch -a
+	c = checkout
+	cb = checkout -b
+	s = switch
+	sm = switch -
+	sc = switch -c
+	cm = commit -m
+	cam = commit --amend -a -C HEAD
+	fixit = commit --amend --no-edit
+	st = status
+	f = fetch
+	r = rebase
+	lo = log --oneline
+	po = push origin HEAD
+	pf = push --force-with-lease --force-if-includes origin HEAD
