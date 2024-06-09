@@ -28,13 +28,13 @@
 	pf = push --force-with-lease --force-if-includes origin HEAD
 
 [diff]
-        tool = difftastic
+	tool = difftastic
 
 [difftool]
-        prompt = false
+	prompt = false
 
 [difftool "difftastic"]
-        cmd = difft "$LOCAL" "$REMOTE"
+	cmd = difft "$LOCAL" "$REMOTE"
 
 [pager]
-        difftool = true
+	difftool = true
