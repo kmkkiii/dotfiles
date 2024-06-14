@@ -2,4 +2,4 @@
 node = "lts"
 deno = "1.44.2"
 python = "3.12"
-rust = "1.78"
+rust = "1.79"
