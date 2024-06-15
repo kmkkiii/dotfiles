@@ -1,5 +1,9 @@
 [tools]
-node = "lts"
 deno = "1.44.2"
+node = "lts"
 python = "3.12"
+ruby = "3.3.3"
 rust = "1.79"
+
+[settings]
+experimental = true
