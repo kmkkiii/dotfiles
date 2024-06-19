@@ -23,7 +23,7 @@ config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 2000 }
 config.font = wezterm.font_with_fallback({
   { family = 'PlemolJP Console NF', weight = 'Medium' },
 })
-config.font_size = 14.0
+config.font_size = 15.0
 
 config.status_update_interval = 1000
 

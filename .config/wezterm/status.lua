@@ -35,7 +35,7 @@ local function LeftUpdate(window, pane)
 end
 
 -- Right Status
-local HEADER_HOST = { Foreground = { Color = '#75b1a9' }, Text = ' ' }
+local HEADER_HOST = { Foreground = { Color = '#75b1a9' }, Text = '  ' }
 local HEADER_CWD = { Foreground = { Color = '#92aac7' }, Text = ' ' }
 local HEADER_DATE = { Foreground = { Color = '#ffccac' }, Text = '󱪺 ' }
 local HEADER_TIME = { Foreground = { Color = '#bcbabe' }, Text = ' ' }
