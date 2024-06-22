@@ -16,24 +16,26 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = {
-  'rcarriga/nvim-notify',
-  config = function() require 'plugins.nvim-notify' end,
-}
-
-require("lazy").setup(plugins, {
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "gzip",
-        -- "matchit",
-        -- "matchparen",
-        "netrwPlugin",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
+require("lazy").setup(
+  { import = "plugins" },
+  {
+    defaults = {
+      lazy = true,
+      version = "*", -- install the latest stable version
+    },
+    performance = {
+      rtp = {
+        disabled_plugins = {
+          "gzip",
+          -- "matchit",
+          -- "matchparen",
+          "netrwPlugin",
+          "tarPlugin",
+          "tohtml",
+          "tutor",
+          "zipPlugin",
+        },
       },
     },
-  },
-})
+  }
+)
