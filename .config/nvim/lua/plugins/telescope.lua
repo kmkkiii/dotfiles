@@ -20,7 +20,10 @@ return {
             -- actions.which_key shows the mappings for your picker,
             -- e.g. git_{create, delete, ...}_branch for the git_branches picker
             ["<C-h>"] = "which_key"
-          }
+          },
+          n = {
+            ['<C-h>'] = 'which_key',
+          },
         }
       },
       pickers = {
@@ -51,6 +54,11 @@ return {
     require('telescope').load_extension('fzf')
 
     local builtin = require('telescope.builtin')
+    local themes = require 'telescope.themes'
+
+    vim.keymap.set('n', '<leader>h', function()
+      builtin.help_tags(themes.get_ivy())
+    end)
 
     vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
     vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
