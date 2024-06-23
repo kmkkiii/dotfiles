@@ -6,7 +6,7 @@ return {
   event = "VimEnter",
   config = function()
     require("lualine").setup {
-      options = { theme = "solarized_dark" },
+      options = { theme = "auto" },
     }
   end,
 }
