@@ -2,6 +2,8 @@ return {
   "nvim-treesitter/nvim-treesitter",
   config = function()
     require('nvim-treesitter.configs').setup {
+      event = { 'BufNewFile', 'BufReadPre' },
+
       ensure_installed = {
         "lua",
         "vim",
