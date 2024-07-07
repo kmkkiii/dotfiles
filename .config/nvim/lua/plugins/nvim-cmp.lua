@@ -6,20 +6,23 @@ return {
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-path',
     'onsails/lspkind-nvim',
-    {
-      'L3MON4D3/LuaSnip',
-      version = "v2.*",
-      dependencies = {
-        'rafamadriz/friendly-snippets',
-        'saadparwaiz1/cmp_luasnip',
-      },
-      config = function()
-        require('luasnip.loaders.from_vscode').lazy_load(
-          -- paths = { './snippets' }
-        )
-      end,
-    },
     'saadparwaiz1/cmp_luasnip'
+  },
+  {
+    'L3MON4D3/LuaSnip',
+    version = "v2.*",
+    dependencies = {
+      'rafamadriz/friendly-snippets',
+      'saadparwaiz1/cmp_luasnip',
+    },
+    config = function()
+      require('luasnip.loaders.from_vscode').lazy_load {
+        paths = {
+          vim.fn.stdpath 'data' .. '/lazy/friendly-snippets',
+          -- './snippets',
+        }
+      }
+    end,
   },
   config = function()
     local cmp = require('cmp')
