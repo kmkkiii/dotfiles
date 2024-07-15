@@ -24,6 +24,14 @@ local themes = {
 			vim.cmd("colorscheme catppuccin-mocha")
 		end,
 	},
+	nightfox = {
+		"EdenEast/nightfox.nvim",
+		name = "nightfox",
+		lazy = false,
+		config = function()
+			vim.cmd("colorscheme nightfox")
+		end,
+	}
 }
 
-return themes.kanagawa
+return themes.nightfox
