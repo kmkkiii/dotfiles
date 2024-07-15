@@ -27,8 +27,8 @@ return {
           exclude = { '.git', 'target', 'build' },
         },
       },
-
-      vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true })
     }
+
+    vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true })
   end,
 }
