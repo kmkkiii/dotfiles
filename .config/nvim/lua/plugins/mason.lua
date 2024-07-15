@@ -7,7 +7,11 @@ return {
     'hrsh7th/cmp-nvim-lsp',
   },
   config = function()
-    require("mason").setup {}
+    require("mason").setup {
+      ui = {
+        check_outdated_packages_on_open = false,
+      },
+    }
 
     local lsp = require 'lspconfig'
 
@@ -33,6 +37,13 @@ return {
             },
           },
         }
+      end,
+      ['denols'] = function()
+        lsp.denols.setup({
+          init_options = {
+            lint = true,
+          },
+        })
       end,
     }
   end

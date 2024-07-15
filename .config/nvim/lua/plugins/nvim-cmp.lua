@@ -1,28 +1,18 @@
 return {
   'hrsh7th/nvim-cmp',
+  event = "InsertEnter",
   dependencies = {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-path',
     'onsails/lspkind-nvim',
-    'saadparwaiz1/cmp_luasnip'
-  },
-  {
-    'L3MON4D3/LuaSnip',
-    version = "v2.*",
-    dependencies = {
-      'rafamadriz/friendly-snippets',
-      'saadparwaiz1/cmp_luasnip',
+    'saadparwaiz1/cmp_luasnip',
+    'rafamadriz/friendly-snippets',
+    {
+      'L3MON4D3/LuaSnip',
+      version = "v2.*",
     },
-    config = function()
-      require('luasnip.loaders.from_vscode').lazy_load {
-        paths = {
-          vim.fn.stdpath 'data' .. '/lazy/friendly-snippets',
-          -- './snippets',
-        }
-      }
-    end,
   },
   config = function()
     local cmp = require('cmp')
@@ -33,6 +23,8 @@ return {
       local line, col = unpack(vim.api.nvim_win_get_cursor(0))
       return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match '%s' == nil
     end
+
+    require('luasnip.loaders.from_vscode').lazy_load({})
 
     cmp.setup {
       sources = cmp.config.sources {
@@ -51,7 +43,7 @@ return {
         ['<C-f>'] = map.scroll_docs(4),
         ['<C-Space>'] = map.complete(),
         ['<C-e>'] = map.abort(),
-        ['<CR>'] = map.confirm { select = false },
+        ['<CR>'] = map.confirm { select = true },
         ['<Tab>'] = map(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
@@ -83,24 +75,24 @@ return {
       }
     }
 
-    cmp.setup.cmdline(':', {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources {
-        { name = 'cmdline' },
-        { name = 'path' },
-      },
-    })
+    -- cmp.setup.cmdline(':', {
+    --   mapping = cmp.mapping.preset.cmdline(),
+    --   sources = cmp.config.sources {
+    --     { name = 'cmdline' },
+    --     { name = 'path' },
+    --   },
+    -- })
 
-    cmp.setup.cmdline { '/', '?' } {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources {
-        {
-          name = 'buffer',
-          option = {
-            keyword_pattern = [[\k\+]],
-          }
-        },
-      },
-    }
+    -- cmp.setup.cmdline { '/', '?' } {
+    --   mapping = cmp.mapping.preset.cmdline(),
+    --   sources = cmp.config.sources {
+    --     {
+    --       name = 'buffer',
+    --       option = {
+    --         keyword_pattern = [[\k\+]],
+    --       }
+    --     },
+    --   },
+    -- }
   end,
 }
