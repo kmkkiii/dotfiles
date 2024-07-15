@@ -3,6 +3,8 @@ vim.loader.enable()
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.g["denops#debug"] = 1
+
 require 'options'
 require 'keybinds'
 
@@ -17,6 +19,7 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(
@@ -42,3 +45,5 @@ require("lazy").setup(
     },
   }
 )
+
+vim.keymap.set("n", "<leader>l", ":Lazy<CR>", { silent = true })
