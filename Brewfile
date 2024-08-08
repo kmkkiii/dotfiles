@@ -2,7 +2,7 @@
 tap "homebrew/bundle"
 
 # brew
-brew "chezmoi"
+brew "act"
 brew "cocoapods"
 brew "difftastic"
 brew "fd"
