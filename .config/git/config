@@ -2,6 +2,9 @@
 	name = kmkkiii
 	email = rskkmkmk@gmail.com
 
+[init]
+    defaultBranch = main
+
 [core]
 	quotepath = false
 	editor = nvim
