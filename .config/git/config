@@ -3,7 +3,7 @@
 	email = rskkmkmk@gmail.com
 
 [init]
-    defaultBranch = main
+  defaultBranch = main
 
 [core]
 	quotepath = false
