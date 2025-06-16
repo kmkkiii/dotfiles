@@ -1,9 +1,14 @@
 [tools]
-deno = "1.44.2"
+# languages
+deno = "latest"
 node = "lts"
-python = "3.12"
-ruby = "3.3.3"
-rust = "1.79"
+python = "latest"
+ruby = "latest"
+rust = "latest"
+go = "latest"
+
+# npm packages
+"npm:anthropic-ai/claude-code" = "latest"
 
 [settings]
 experimental = true
