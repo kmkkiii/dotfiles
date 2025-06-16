@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm';
 local act = wezterm.action;
-local config = wezterm.config_builder
+local config = wezterm.config_builder()
 
 config.font = wezterm.font_with_fallback({
   { family = 'PlemolJP Console NF', weight = 'Medium' },
